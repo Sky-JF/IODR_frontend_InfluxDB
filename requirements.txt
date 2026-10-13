@@ -1,0 +1,12 @@
+gunicorn
+numpy
+pandas>=2.2,<3
+requests
+dash<3
+dash-bootstrap-components<2
+rq
+whitenoise==5.2.0
+plotly
+scipy
+tzdata
+influxdb-client
