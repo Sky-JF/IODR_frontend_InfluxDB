@@ -24,6 +24,9 @@ from scipy.signal import find_peaks
 from scipy.optimize import curve_fit
 from scipy import stats
 
+# Subtitle of web page. This is the source of the data. In this case, it is InfluxDB
+subtitle = "InfluxDB, Raspberry Pi"
+
 # set ThingSpeak variables
 # 3 sets of data, since there are 3 IODR devices
 tsBaseUrl = r'https://api.thingspeak.com/channels'
@@ -64,8 +67,39 @@ server.wsgi_app = WhiteNoise(server.wsgi_app, root='static/c')
 app.layout = html.Div([
     # this is the sticky header division at the top of the page
     html.Div(children=[
-        html.H1("IODR #2 Viewer", id='header-text',
-                style={'textAlign': 'left', 'height': 70, 'width': '27%', 'float': 'left', 'marginLeft': '3%'}),
+        # This is the title of the page
+        html.Div(
+            children=[
+                html.H1(
+                    "IODR #2 Viewer",
+                    id='header-text',
+                    style={
+                        'textAlign': 'left',
+                        'height': 30,
+                        'margin': 0,
+                        'marginBottom': '10px'
+                    }
+                ),
+                html.H3(
+                    subtitle,  # Your variable string
+                    id='subtitle-text',
+                    style={
+                        'marginTop': 0,
+                        'fontSize': '18px',
+                        'fontWeight': 'normal'
+                    }
+                )
+            ],
+            style={
+                'width': '27%',
+                'float': 'left',
+                'marginLeft': '3%',
+                'display': 'flex',
+                'flexDirection': 'column',
+                'justifyContent': 'center',
+                'height': '100px'
+            }
+        ),
         html.Div(children=[
             html.Button(
                 'IODR #1',
