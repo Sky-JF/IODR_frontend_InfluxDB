@@ -24,7 +24,7 @@ from scipy.signal import find_peaks
 from scipy.optimize import curve_fit
 from scipy import stats
 
-# Subtitle of web page. This is the source of the data. In this case, it is InfluxDB
+# Subtitle of web page. This is the source of the data and where the frontend is being hosted. In this case, it is InfluxDB and the R
 subtitle = "InfluxDB, Raspberry Pi"
 
 # set ThingSpeak variables
@@ -81,7 +81,7 @@ app.layout = html.Div([
                     }
                 ),
                 html.H3(
-                    subtitle,  # Your variable string
+                    subtitle,  
                     id='subtitle-text',
                     style={
                         'marginTop': 0,
